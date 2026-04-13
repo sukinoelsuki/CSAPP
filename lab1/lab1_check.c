@@ -69,7 +69,7 @@ void check_BitOps() {
     is_the_same(negate(x = RANDOM), -x);
 
     printf("Checking bitAnd with random test...\n");
-    is_the_same(bitAnd(x = RANDOM, y = RANDOM), x + y);
+    is_the_same(bitAnd(x = RANDOM, y = RANDOM), x & y);
 
     printf("Checking bitOr with random test...\n");
     is_the_same(bitOr(x = RANDOM, y = RANDOM), x | y);
@@ -78,7 +78,7 @@ void check_BitOps() {
     is_the_same(bitXor(x = RANDOM, y = RANDOM), x ^ y);
 
     printf("Checking isTmax with random test...\n");
-    is_the_same(isTmax(x = RANDOM), x == 0x7fffffff);
+    is_the_same(isTmax(x = RANDOM), (x != 0x7fffffff));
 
     printf("Checking bitCount with random test...\n");
     is_the_same(bitCount(x = RANDOM), C_bitCount(x));

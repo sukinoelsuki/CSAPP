@@ -10,13 +10,13 @@ int absVal(int x);
 // return -x 
 int negate(int x);
 
-// return x + y
+// return x & y , only use ~ and |
 int bitAnd(int x, int y);
 
-// return x | y 
+// return x | y , only use ~ and &
 int bitOr(int x, int y);
 
-// return x Xor y
+// return x Xor y , only use ~ and &
 int bitXor(int x, int y);
 
 // tell if x is the largest number 7FFFFFFF
@@ -37,7 +37,7 @@ int byteSwap(int x, int n, int m);
 // return 1 when x equals 0, else return 0
 int bang(int x);
 
-// return 1 if x has odd count of 0 in binary x, else return 0;
+// return 1 if x has odd count of 0 in binary x, else return 0;(The definition in the guidance file is ambiguous.)
 int bitParity(int x);
 
 

@@ -32,6 +32,7 @@ int C_byteSwap(int x, int n, int m) {
     return 0;
 }
 
+/*
 int C_bitParity(int x) {
     int cnt = 0;
     if (x == 0)  return 1;
@@ -42,4 +43,9 @@ int C_bitParity(int x) {
         x /= 2;
     }
     return (cnt % 2) == 0 ? 0 : 1;
+}
+*/
+
+int C_bitParity(int x) {
+    return C_bitCount(x) % 2;
 }
