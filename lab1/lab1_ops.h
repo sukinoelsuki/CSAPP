@@ -3,6 +3,7 @@
 
 #include "stdio.h"
 #include "stdlib.h"
+#include "string.h"
 #include "lab1_stu.h"
 
 int pack_student_bytebybyte(student_t* s, int sno, char* buf);

@@ -2,9 +2,9 @@
 #include "lab1_ops.h"
 #include "lab1_BitOps.h"
 
-#define CHECK_STUDENT_STORAGE 0
-#define CHECK_BIT_OPERATION 1
-
+#define CHECK_STUDENT_STORAGE 1
+#define CHECK_BIT_OPERATION 2
+#define QUIT_THE_SYSTEM 0
 
 student_t* s_pre;
 student_t* s_after;
@@ -27,7 +27,7 @@ int main() {
 
     while (1) {
       if(~scanf("%d", &SWITCHER)) break;
-      printf("Please input a number between 0 and 1. 0 for Storage_Check, 1 for BitOps_Check. Any other number is invalid.\n");
+      printf("Please input a number between 1 and 2. 1 for Storage_Check, 2 for BitOps_Check. Any other number is invalid.\n");
         switch (SWITCHER) {
           case CHECK_STUDENT_STORAGE:
             do_check_storage(&s_pre, &message, &s_after);
@@ -36,6 +36,10 @@ int main() {
           case CHECK_BIT_OPERATION:
             do_check_BitOps();
             break;
+          
+          case QUIT_THE_SYSTEM:
+            printf("The system is closing...\n");
+            return 0;
           
           default:
             printf("Invalid number!\nPlease input a valid number.\n");
