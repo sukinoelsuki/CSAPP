@@ -9,5 +9,4 @@ int pack_student_bytebybyte(student_t* s, int sno, char* buf);
 int pack_student_whole(student_t* s, int sno, char* buf);
 int restore_student(char* buf, int len, student_t* s);
 
-
 #endif
