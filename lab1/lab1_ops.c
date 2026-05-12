@@ -2,7 +2,7 @@
 
 int pack_a_student_bytebybyte(student_t* s, char* buf) {
     char* ptr = (char *)s;
-    for (int i = 0; i < MAX_NUM; ++i) {
+    for (int i = 0; i < MAX_BYTE; ++i) {
         *(buf + i) = *(ptr + i);
     }
     return 0;

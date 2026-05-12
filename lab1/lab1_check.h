@@ -1,5 +1,5 @@
 #ifndef __check__
-#define __chekc__
+#define __check__
 
 
 #include "lab1_stu.h"

@@ -10,7 +10,7 @@
 #include "lab1_BitOps.h"
 
 #define RANDOM get_my_random_Number()
-#define ABS(x) (x) > 0 ? (x) : -(x) 
+#define ABS(x) (((x) > 0) ? (x) : -(x))
 
 void print_N_student(student_t *s, int n) {
     for (int i = 0; i < n; ++i) {
@@ -25,7 +25,7 @@ int do_check_compress(student_t* s, char* buf, student_t* t) {
     memset(buf, 0, MAX_BYTE * MAX_NUM + 5);
     printf("Please input students' info\n");
     for (int i = 0; i < 5; ++i) {
-        scanf("%s%hd%f%s", s[i].name, &s[i].age, &s[i].score, s[i].remark);
+        scanf("%8s %hd %f %200s", s[i].name, &s[i].age, &s[i].score, s[i].remark);
     }
 
     print_N_student(s, 5);

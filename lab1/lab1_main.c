@@ -26,8 +26,8 @@ int main() {
     }
 
     while (1) {
-      if(~scanf("%d", &SWITCHER)) break;
       printf("Please input a number between 0 ~ 2. 1 for Storage_Check, 2 for BitOps_Check, and 0 to close the procedure. Any other number is invalid.\n");
+      if(~scanf("%d", &SWITCHER)) break;
         switch (SWITCHER) {
 
           case QUIT_THE_SYSTEM:
