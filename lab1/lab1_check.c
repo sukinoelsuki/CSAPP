@@ -1,7 +1,7 @@
-#include "string.h"
-#include "stdlib.h"
-#include "stdio.h"
-#include "time.h"
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 
 
 #include "lab1_ops.h"
@@ -10,7 +10,7 @@
 #include "lab1_BitOps.h"
 
 #define RANDOM get_my_random_Number()
-#define ABS(x) x > 0 ? x : -x 
+#define ABS(x) (x) > 0 ? (x) : -(x) 
 
 void print_N_student(student_t *s, int n) {
     for (int i = 0; i < n; ++i) {
@@ -20,26 +20,26 @@ void print_N_student(student_t *s, int n) {
 
 int do_check_compress(student_t* s, char* buf, student_t* t) {
 
-    memset(s, 0, MAX_BYTE);
-    memset(t, 0, MAX_BYTE);
-    memset(buf, 0, MAX_BYTE + 5);
+    memset(s, 0, MAX_BYTE * MAX_NUM);
+    memset(t, 0, MAX_BYTE * MAX_NUM);
+    memset(buf, 0, MAX_BYTE * MAX_NUM + 5);
     printf("Please input students' info\n");
     for (int i = 0; i < 5; ++i) {
-        scanf("%s%hd%f%s", &s[i].name, &s[i].age, &s[i].score, &s[i].remark);
+        scanf("%s%hd%f%s", s[i].name, &s[i].age, &s[i].score, s[i].remark);
     }
 
     print_N_student(s, 5);
 
     pack_student_bytebybyte(s, 3, buf);
-    pack_student_whole(s, 2, buf + 3 * sizeof(student_t));
-    restore_student(buf, 5, t);
+    pack_student_whole(s + 3, 2, buf + 3 * MAX_BYTE);
+    restore_student(buf, MAX_NUM * MAX_BYTE, t);
 
     print_N_student(t, 5);
 
     return 0;
 }
 
-void is_the_same(int x, int y) {
+static inline void is_the_same(int x, int y) {
     printf("My result is %d, the correct result is %d\n", x, y);
     if (x == y) {
         printf("The result is correct!\n");

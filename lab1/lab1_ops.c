@@ -20,15 +20,16 @@ int pack_student_bytebybyte(student_t* s, int sno, char* buf) {
 // pack a student as a whole
 int pack_student_whole(student_t* s, int sno, char* buf) {
     int cnt = sno;
-    memcpy(buf, s, cnt * MAX_NUM);
+    memcpy(buf, s, cnt * MAX_BYTE);
     return cnt;
 }
 
 // restore student infos from specified buf
 int restore_student(char* buf, int len, student_t* s) {
     int cnt = 0;
-    for (cnt = 0; len > 0; len -= MAX_NUM, cnt++) {
-        memcpy(s + cnt, buf, MAX_NUM);
+    char *cur = buf;
+    for (cnt = 0; len > 0; len -= MAX_BYTE, cur += MAX_BYTE, cnt++) {
+        memcpy(s + cnt, cur, MAX_BYTE);
     }
     return cnt;
 }

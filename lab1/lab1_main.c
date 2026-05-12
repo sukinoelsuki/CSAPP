@@ -1,5 +1,5 @@
 #include "lab1_stu.h"
-#include "lab1_ops.h"
+#include "lab1_check.h"
 #include "lab1_BitOps.h"
 
 #define CHECK_STUDENT_STORAGE 1
@@ -13,9 +13,9 @@ char *message;        // buf
 int main() {
 
     int SWITCHER;
-    beforecompress = malloc(MAX_BYTE);
-    decompress = malloc(MAX_BYTE);
-    message = malloc(MAX_BYTE + 5);
+    beforecompress = malloc(MAX_BYTE * MAX_NUM);
+    decompress = malloc(MAX_BYTE * MAX_NUM);
+    message = malloc(MAX_BYTE * MAX_NUM + 5);
 
     if (beforecompress == NULL || decompress == NULL || message == NULL) {
       printf("Out of memory!\n");
