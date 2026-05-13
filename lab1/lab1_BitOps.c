@@ -1,7 +1,7 @@
 #include "lab1_BitOps.h"
 
-
-// What if x is under 0, will (~(x >> 31) + 1) work?
+// it works for both negatives and possitives.
+// Use the difference of signiture to dicide whether negate the number of not.
 int absVal(int x) {
     return x ^ (x >> 31) + (~(x >> 31) + 1);
 }

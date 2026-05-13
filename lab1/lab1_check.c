@@ -49,6 +49,7 @@ static inline void is_the_same(int x, int y) {
     printf("\n");
 }
 
+// the return value of rand is 15 bits
 int get_my_random_Number() {
     unsigned int val = 0;
     val |= ((unsigned int)rand() << 17);
@@ -82,7 +83,7 @@ void check_BitOps() {
 
     printf("Checking bitCount with random test...\n");
     is_the_same(bitCount(x = RANDOM), C_bitCount(x));
-
+ 
     printf("Checking bitMask with random test...\n");
     is_the_same(bitMask(n = RANDOM, m = RANDOM), C_bitMask(n, m));
 
