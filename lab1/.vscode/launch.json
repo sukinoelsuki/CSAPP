@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch", // 配置名称，显示在调试下拉菜单中
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/lab1_main.exe", 
+            "args": [], // 运行时需要传入的参数
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // ！！核心：必须与 tasks.json 中的 label 完全一致
+            "preLaunchTask": "Make: Build Project", 
+            "miDebuggerPath": "/usr/bin/gdb" 
+        }
+    ]
+}

@@ -2,31 +2,29 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "shell", // 修改为 shell 类型以执行命令
-            "label": "Make: Build Project", // 任务名称
-            "command": "make", // 执行的指令
-            "args": [], // 如果你的 Makefile 默认目标就是 all，这里可以留空
+            "type": "shell",
+            "label": "Make: Build Project", 
+            "command": "make",
+            "args": [], 
             "options": {
-                "cwd": "${fileDirname}" // 在当前文件所在目录运行 make
+                // 建议使用 ${workspaceFolder} 确保路径相对项目根目录稳定
+                "cwd": "${workspaceFolder}" 
             },
-            "problemMatcher": [
-                "$gcc" // 依然保留 gcc 错误解析，方便在问题栏查看错误
-            ],
+            "problemMatcher": ["$gcc"],
             "group": {
                 "kind": "build",
-                "isDefault": true // 设置为默认生成任务，Ctrl+Shift+B 直接运行
+                "isDefault": true 
             },
-            "detail": "使用目录下的 Makefile 进行增量编译"
+            "detail": "编译并包含调试信息"
         },
         {
             "type": "shell",
             "label": "Make: Clean",
             "command": "make",
-            "args": ["clean"], // 执行 make clean
+            "args": ["clean"],
             "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": []
+                "cwd": "${workspaceFolder}"
+            }
         }
     ]
 }

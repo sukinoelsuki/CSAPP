@@ -5,7 +5,7 @@
 #include "stdio.h"
 
 // return the count of 1 in x in binary
-int C_bitCount(int x);
+int C_bitCount(unsigned int x);
 
 // return a bitmask, from lowbit to highbit are 1, others are 0
 int C_bitMask(int n, int m);

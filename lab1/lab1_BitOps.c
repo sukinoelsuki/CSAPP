@@ -3,7 +3,7 @@
 // it works for both negatives and possitives.
 // Use the difference of signiture to dicide whether negate the number of not.
 int absVal(int x) {
-    return x ^ (x >> 31) + (~(x >> 31) + 1);
+    return (x ^ (x >> 31)) + (~(x >> 31) + 1);
 }
 
 int negate(int x) {
@@ -23,20 +23,20 @@ int bitXor(int x, int y) {
 }
 
 int isTmax(int x) {
-    return bitXor(x, 0x7fffffff);
+    return !(bitXor(x, 0x7fffffff));
 }
 
-int bitCount(int x) {
-    int cnt = 0;
-    while (x) {
-        cnt += x & 1;
-        x >>= 1;
-    }
-    return cnt;
+int bitCount(unsigned int x) {
+    x = ((x & 0x55555555) + ((x >> 1) & 0x55555555));
+    x = ((x & 0x33333333) + ((x >> 2) & 0x33333333));
+    x = ((x & 0x0f0f0f0f) + ((x >> 4) & 0x0f0f0f0f));
+    x = ((x & 0x00ff00ff) + ((x >> 8) & 0x00ff00ff));
+    x = ((x & 0x0000ffff) + ((x >> 16) & 0x0000ffff));
+    return x;
 }
 
 int bitMask(int highbit, int lowbit) {
-    return (int)((unsigned long long)1 << (highbit + 1)) + (~(unsigned long long)(1 << lowbit) + 1);
+    return (int)((long long)1 << (highbit + 1)) + (~((long long)1 << lowbit) + 1);
 }
 
 // ?

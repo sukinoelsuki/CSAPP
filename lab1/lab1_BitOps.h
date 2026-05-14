@@ -23,7 +23,7 @@ int bitXor(int x, int y);
 int isTmax(int x);
 
 // return the count of 1 in x in binary
-int bitCount(int x);
+int bitCount(unsigned int x);
 
 // return a bitmask, from lowbit to highbit are 1, others are 0
 int bitMask(int highbit, int lowbit);
