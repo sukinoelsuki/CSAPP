@@ -1,9 +1,9 @@
 CC = gcc
-CFLAGS = -g -Wall -fdiagnostics-color=always
+CFLAGS = -g -Wall -fdiagnostics-color=always -std=c99
 
 # 1. 确保路径使用正斜杠
 BUILD_DIR = build
-TARGET = $(BUILD_DIR)/lab1_check.exe
+TARGET = $(BUILD_DIR)/lab1_main.exe
 
 # 2. 扫描源码
 SRCS = $(wildcard *.c)

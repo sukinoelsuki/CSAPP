@@ -5,7 +5,8 @@
             "name": "(gdb) Launch", // 配置名称，显示在调试下拉菜单中
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/lab1_main.exe", 
+            // ！！这里填入 Makefile 产出的可执行文件路径
+            "program": "${workspaceFolder}/your_executable_name", 
             "args": [], // 运行时需要传入的参数
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

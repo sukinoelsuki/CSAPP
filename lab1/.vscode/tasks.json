@@ -7,7 +7,6 @@
             "command": "make",
             "args": [], 
             "options": {
-                // 建议使用 ${workspaceFolder} 确保路径相对项目根目录稳定
                 "cwd": "${workspaceFolder}" 
             },
             "problemMatcher": ["$gcc"],
@@ -25,6 +24,28 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             }
+        },
+        // ------------------ 这是为你新增加的对齐任务 ------------------
+        {
+            "type": "shell",
+            "label": "Make: Run Exe",
+            // 这里替换为你 Makefile 最终生成的实际 exe 相对路径
+            "command": ".\\build\\lab1_main.exe", 
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            // 核心魔法：执行此任务前，必须先成功执行 "Make: Build Project"
+            "dependsOn": "Make: Build Project",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,      // 自动聚焦终端，方便你输入测试数据
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true       // 每次运行前自动清空终端，保持清爽
+            },
+            "detail": "自动编译并运行最终生成的程序"
         }
     ]
 }
