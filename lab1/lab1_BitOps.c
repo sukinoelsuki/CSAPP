@@ -36,18 +36,17 @@ int bitCount(unsigned int x) {
 }
 
 int bitMask(int highbit, int lowbit) {
-    return (int)((long long)1 << (highbit + 1)) + (~((long long)1 << lowbit) + 1);
+    return (int)(((long long)1 << (highbit + 1)) + (~((long long)1 << lowbit) + 1));
 }
 
-// ?
 int addOK(int x, int y) {
-    return !((((x ^ y) >> 31) & 1) | (((x & y) >> 30) & 1));
+    return !(((x ^ y) >> 31) & 1) & ((x >> 31) ^ ((x + y) >> 31));
 }
 
 int byteSwap(int x, int n, int m) {
-    x ^ (((x & (0x000000ff << (n << 2))) >> (n << 2)) << (m << 2));
-    x ^ (((x & (0x000000ff << (m << 2))) >> (m << 2)) << (n << 2));
-    x ^ (((x & (0x000000ff << (n << 2))) >> (n << 2)) << (m << 2));
+    x = x ^ (((x & (0x000000ff << (n << 2))) >> (n << 2)) << (m << 2));
+    x = x ^ (((x & (0x000000ff << (m << 2))) >> (m << 2)) << (n << 2));
+    x = x ^ (((x & (0x000000ff << (n << 2))) >> (n << 2)) << (m << 2));
     return x;
 }
 
@@ -62,5 +61,5 @@ int bitParity(int x) {
     ans = (ans >> 4) ^ ans;
     ans = (ans >> 2) ^ ans;
     ans = (ans >> 1) ^ ans;
-    return ans;
+    return (ans & 1);
 }

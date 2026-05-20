@@ -12,11 +12,20 @@
 #define RANDOM (get_my_random_Number())
 #define ABS(x) (((x) > 0) ? (x) : -(x))
 
-void print_N_student(student_t *s, int n) {
+static inline void print_N_student(student_t *s, int n) {
     for (int i = 0; i < n; ++i) {
-        printf("%s %hd %f %s\n", s[i].name, s[i].age, s[i].score, s[i].remark);
+        printf("%s %hd %0.2f %s\n", s[i].name, s[i].age, s[i].score, s[i].remark);
     }
+    printf("\n");
 }
+
+/*
+Le0n3rd 20 95.5 U202115634   
+Bob 21 88.0 B-
+Cathy 22 76.3 C
+David 23 100.0 A
+Eve 24 60.0 F
+*/
 
 int do_check_compress(student_t* s, char* buf, student_t* t) {
 
@@ -28,12 +37,14 @@ int do_check_compress(student_t* s, char* buf, student_t* t) {
         scanf("%8s %hd %f %200s", s[i].name, &s[i].age, &s[i].score, s[i].remark);
     }
 
+    printf("Before compress:\n");
     print_N_student(s, 5);
 
     pack_student_bytebybyte(s, 3, buf);
     pack_student_whole(s + 3, 2, buf + 3 * MAX_BYTE);
     restore_student(buf, MAX_NUM * MAX_BYTE, t);
 
+    printf("After compress:\n");
     print_N_student(t, 5);
 
     return 0;
@@ -92,8 +103,10 @@ void check_BitOps() {
     x = RANDOM;
     is_the_same(bitCount((unsigned int)x), C_bitCount((unsigned int)x));
 
+    // n >= m
     printf("Checking bitMask with random test...\n");
     n = (RANDOM % 32 + 32) % 32, m = (RANDOM % 32 + 32) % 32;
+    n = (m <= n ? n : m);
     is_the_same(bitMask(n, m), C_bitMask(n, m));
 
     printf("Checking addOK with random test...\n");

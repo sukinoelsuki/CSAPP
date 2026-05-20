@@ -12,7 +12,7 @@ int pack_a_student_bytebybyte(student_t* s, char* buf) {
 int pack_student_bytebybyte(student_t* s, int sno, char* buf) {
     int cnt;
     for (cnt = 0; cnt < sno; ++cnt) {
-        pack_a_student_bytebybyte(&s[cnt], buf + cnt * sizeof(student_t));
+        pack_a_student_bytebybyte(s + cnt, buf + cnt * sizeof(student_t));
     }
     return cnt;
 }

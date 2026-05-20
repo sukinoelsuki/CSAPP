@@ -12,7 +12,6 @@ int C_bitCount(unsigned int x) {
 
 int C_bitMask(int n, int m) {
     int re = 0;
-    n = (m <= n ? n : m);
     for (int i = m; i <= n; ++i) {
         re += pow(2, i);
     }

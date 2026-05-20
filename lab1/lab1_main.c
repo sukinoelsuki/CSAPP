@@ -44,7 +44,7 @@ int main() {
           
           
           default:
-            printf("Invalid number!\nPlease input a valid number.\n");
+            printf("Invalid number!\nPlease input a valid number.\n\n");
             break;
       }
     }
